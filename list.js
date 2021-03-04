@@ -3,8 +3,9 @@ const page_Display = document.getElementById("display_page");
 
 
 const List = function(element, listItems){
-	// sample template
+
     this.start = 0;
+    this.itWas = 10;
 	this.pageSize = 10;
 	this.currentPage = 1;
 	this.render = function(){
@@ -14,7 +15,7 @@ const List = function(element, listItems){
             <th style="width: 200px;">Name</th>
             <th style="width: 200px;">Email Id</th>
         </tr>`;
-        for(let i=start;i<this.pageSize;i++){
+        for(let i=this.start;i<this.pageSize;i++){
             const createRow = document.createElement("tr");
 
             const roll_No = document.createElement("td");
@@ -36,13 +37,115 @@ const List = function(element, listItems){
                //Code to push page data
                // Here goes your code
 	};
-	this.navigateFirst = function(){};
-	this.navigateLast = function(){};
-	this.navigatePrev = function(){};
-	this.navigateNext = function(){};
+
+	this.navigateFirst = function(){
+        this.start = 0;
+        this.pageSize = this.itWas;
+        this.currentPage = 1;
+        this.render();
+
+    };
+
+	this.navigateLast = function(){
+
+        if(this.pageSize == 10){
+            this.start = 30;
+            this.pageSize = 40;
+            this.currentPage = 4;
+            this.itWas = 10;
+            this.render();
+            
+        }
+        else if (this.pageSize == 20){
+            this.start = 20;
+            this.pageSize = 40;
+            this.currentPage  = 2;
+            this.itWas = 20;
+            this.render();
+            
+        }
+
+    };
+	
+    this.navigatePrev = function(){
+
+        try{
+
+            if(this.currentPage > 1)
+            this.currentPage = this.currentPage - 1;
+            
+            if(this.itWas == 10){
+                this.start = this.start - 10;
+                this.pageSize = this.pageSize - 10;
+            }
+            
+            if(this.itWas == 20){
+                this.start = this.start - 20;
+                this.pageSize = this.pageSize - 20;
+            }
+            
+            this.render();
+        }
+        catch(e){
+            alert("Accessing values outside the table");
+            location.reload();
+        }
+
+    };
+	
+    this.navigateNext = function(){
+
+        try{
+
+            if(this.currentPage < 4)
+            this.currentPage = this.currentPage + 1;
+    
+            if(this.itWas == 10){
+                this.start = this.start + 10;
+                this.pageSize = this.pageSize + 10;
+            }
+            
+            if(this.itWas == 20){
+                this.start = this.start + 20;
+                this.pageSize = this.pageSize + 20;
+            }
+    
+            this.render();
+        }
+        catch(e){
+            alert("Accessing values outside the table");
+            location.reload();
+        }
+
+    };
 
     this.pageSizeChange = function(page_size){
-        this.pageSize = page_size;
-        this.render();
+
+        if(page_size == 20 && this.start == 30 && this.pageSize == 40){
+            this.start = this.start - 10;
+            this.currentPage  = 2;
+            this.itWas = 20;
+            this.render();
+            
+        }
+        else if(page_size == 10 && this.start == 20 && this.pageSize == 40){
+            this.start = this.start + 10;
+            this.currentPage  = 4;
+            this.itWas = 10;
+            this.render();
+
+        }
+        else{
+            this.pageSize = page_size;
+
+            if(page_size == 10)
+            this.itWas = 10;
+            else
+            this.itWas = 20;
+            
+            this.render();
+            
+         }   
+
     };
 };

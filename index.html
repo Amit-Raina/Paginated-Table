@@ -164,11 +164,97 @@
 			"name" : "Student 25",
 			"email" : "stu25@gmail.com"
 		},
+		{
+			"rno" : 26,
+			"name" : "Student 26",
+			"email" : "stu26@gmail.com"
+		},
+		{
+			"rno" : 27,
+			"name" : "Student 27",
+			"email" : "stu27@gmail.com"
+		},
+		{
+			"rno" : 28,
+			"name" : "Student 28",
+			"email" : "stu28@gmail.com"
+		},
+		{
+			"rno" : 29,
+			"name" : "Student 29",
+			"email" : "stu29@gmail.com"
+		},
+		{
+			"rno" : 30,
+			"name" : "Student 30",
+			"email" : "stu30@gmail.com"
+		},
+		{
+			"rno" : 31,
+			"name" : "Student 31",
+			"email" : "stu31@gmail.com"
+		},
+		{
+			"rno" : 32,
+			"name" : "Student 32",
+			"email" : "stu32@gmail.com"
+		},
+		{
+			"rno" : 33,
+			"name" : "Student 33",
+			"email" : "stu33@gmail.com"
+		},
+		{
+			"rno" : 34,
+			"name" : "Student 34",
+			"email" : "stu34@gmail.com"
+		},
+		{
+			"rno" : 35,
+			"name" : "Student 35",
+			"email" : "stu35@gmail.com"
+		},
+		{
+			"rno" : 36,
+			"name" : "Student 36",
+			"email" : "stu36@gmail.com"
+		},
+		{
+			"rno" : 37,
+			"name" : "Student 37",
+			"email" : "stu37@gmail.com"
+		},
+		{
+			"rno" : 38,
+			"name" : "Student 38",
+			"email" : "stu38@gmail.com"
+		},
+		{
+			"rno" : 39,
+			"name" : "Student 39",
+			"email" : "stu39@gmail.com"
+		},
+		{
+			"rno" : 40,
+			"name" : "Student 40",
+			"email" : "stu40@gmail.com"
+		},
 	]; 
 	const pageSize = document.getElementById("pages_show");
+	const firstPage = document.getElementById("navigateFirst");
+	const lastPage = document.getElementById("navigateLast");
+	const nextPage = document.getElementById("navigateNext");
+	const prevPage = document.getElementById("navigatePrev");
 	const listObj = new List(document.getElementById('elementId'), students);
 	listObj.render();
+
 	pageSize.addEventListener('change',() => listObj.pageSizeChange(pageSize.value));
+	firstPage.addEventListener('click',() => listObj.navigateFirst());
+	lastPage.addEventListener('click',() => listObj.navigateLast());
+	nextPage.addEventListener('click',() => listObj.navigateNext());
+	prevPage.addEventListener('click',() => listObj.navigatePrev());
+
+
 </script>
 
 </html>
