@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Paginated Display</title>
+</head>
+<body>
+	<br>
+
+	<center><div >
+			<table id="elementId" border="1" cellspacing = "5">
+				
+			</table>
+
+			<table border="1">
+				<tr>
+					<td style="width: 412px; display:flex; flex-direction: row;align-items: center;justify-content: space-around;">
+
+						<button id="navigateFirst">⇦⇦</button>
+						<button id="navigatePrev">⇦</button>
+						<h4 id="display_page" style="border: 1px solid black;padding: 5px;"></h4>
+						<button id="navigateNext">⇨</button>
+						<button id="navigateLast">⇨⇨</button>
+
+					</td>
+					<td style="width: 102px;">
+						<select name="number" id="pages_show">
+							<option value="10">10</option>
+							<option value="20">20</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+	</div></center>
+	
+</body>
+<script src="list.js"></script>
+<script>
+	const students = [
+		{
+			"rno" : 1,
+			"name" : "Student 1",
+			"email" : "stu1@gmail.com"
+		},
+		{
+			"rno" : 2,
+			"name" : "Student 2",
+			"email" : "stu2@gmail.com"
+		},
+		{
+			"rno" : 3,
+			"name" : "Student 3",
+			"email" : "stu3@gmail.com"
+		},
+		{
+			"rno" : 4,
+			"name" : "Student 4",
+			"email" : "stu4@gmail.com"
+		},
+		{
+			"rno" : 5,
+			"name" : "Student 5",
+			"email" : "stu5@gmail.com"
+		},
+		{
+			"rno" : 6,
+			"name" : "Student 6",
+			"email" : "stu6@gmail.com"
+		},
+		{
+			"rno" : 7,
+			"name" : "Student 7",
+			"email" : "stu7@gmail.com"
+		},
+		{
+			"rno" : 8,
+			"name" : "Student 8",
+			"email" : "stu8@gmail.com"
+		},
+		{
+			"rno" : 9,
+			"name" : "Student 9",
+			"email" : "stu9@gmail.com"
+		},
+		{
+			"rno" : 10,
+			"name" : "Student 10",
+			"email" : "stu10@gmail.com"
+		},
+		{
+			"rno" : 11,
+			"name" : "Student 11",
+			"email" : "stu11@gmail.com"
+		},
+		{
+			"rno" : 12,
+			"name" : "Student 12",
+			"email" : "stu12@gmail.com"
+		},
+		{
+			"rno" : 13,
+			"name" : "Student 13",
+			"email" : "stu13@gmail.com"
+		},
+		{
+			"rno" : 14,
+			"name" : "Student 14",
+			"email" : "stu14@gmail.com"
+		},
+		{
+			"rno" : 15,
+			"name" : "Student 15",
+			"email" : "stu15@gmail.com"
+		},
+		{
+			"rno" : 16,
+			"name" : "Student 16",
+			"email" : "stu16@gmail.com"
+		},
+		{
+			"rno" : 17,
+			"name" : "Student 17",
+			"email" : "stu17@gmail.com"
+		},
+		{
+			"rno" : 18,
+			"name" : "Student 18",
+			"email" : "stu18@gmail.com"
+		},
+		{
+			"rno" : 19,
+			"name" : "Student 19",
+			"email" : "stu19@gmail.com"
+		},
+		{
+			"rno" : 20,
+			"name" : "Student 20",
+			"email" : "stu20@gmail.com"
+		},
+		{
+			"rno" : 21,
+			"name" : "Student 21",
+			"email" : "stu21@gmail.com"
+		},
+		{
+			"rno" : 22,
+			"name" : "Student 22",
+			"email" : "stu22@gmail.com"
+		},
+		{
+			"rno" : 23,
+			"name" : "Student 23",
+			"email" : "stu23@gmail.com"
+		},
+		{
+			"rno" : 24,
+			"name" : "Student 24",
+			"email" : "stu24@gmail.com"
+		},
+		{
+			"rno" : 25,
+			"name" : "Student 25",
+			"email" : "stu25@gmail.com"
+		},
+	]; 
+	const pageSize = document.getElementById("pages_show");
+	const listObj = new List(document.getElementById('elementId'), students);
+	listObj.render();
+	pageSize.addEventListener('change',() => listObj.pageSizeChange(pageSize.value));
+</script>
+
+</html>
+
+
+
